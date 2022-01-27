@@ -1,4 +1,15 @@
-const Todo = ({ text, todos, setTodos, todo }) => {
+const Todo = ({
+  text,
+  todos,
+  setTodos,
+  todo,
+  setTodoEditing,
+  setEditingText,
+  editingText,
+  todoEditing,
+  subtitle,
+  notes,
+}) => {
   const deleteTodoHandler = () => {
     setTodos(todos.filter((element) => element.id !== todo.id));
   };
@@ -17,17 +28,68 @@ const Todo = ({ text, todos, setTodos, todo }) => {
     );
   };
 
+  const updateTodoNameHandler = (e) => {
+    setEditingText(e.target.value);
+  };
+
+  const editTodo = (id) => {
+    const updatedTodos = [...todos].map((todo) => {
+      if (todo.id === id && editingText !== "") {
+        todo.text = editingText;
+      }
+      return todo;
+    });
+
+    setTodos(updatedTodos);
+    setTodoEditing(null);
+    setEditingText("");
+  };
+
+  const addSubtaskHandler = () => {};
   return (
     <div className="todo">
-      <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
-        {text}
-      </li>
-      <button className="complete-btn" onClick={completeTodoHandler}>
-        <i className="fas fa-check"></i>
-      </button>
-      <button className="remove-btn" onClick={deleteTodoHandler}>
-        <i className="fas fa-trash"></i>
-      </button>
+      {todoEditing === todo.id ? (
+        <input
+          className="todo-edit"
+          type="text"
+          placeholder={text}
+          onChange={updateTodoNameHandler}
+          value={editingText}
+          maxLength={50}
+        />
+      ) : (
+        <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
+          <h2 className="todo-title">{text}</h2>
+          <h3 className="todo-subtitle">Subtitle: {subtitle}</h3>
+          <h4 className="todo-notes">Notes: {notes}</h4>
+        </li>
+      )}
+
+      {todoEditing === todo.id ? (
+        <button className="save-edit" onClick={() => editTodo(todo.id)}>
+          <i className="fas fa-save"></i>
+        </button>
+      ) : (
+        <>
+          <button
+            className="edit-btn"
+            onClick={() => {
+              setTodoEditing(todo.id);
+            }}
+          >
+            <i className="fas fa-pen"></i>
+          </button>
+          <button className="complete-btn" onClick={completeTodoHandler}>
+            <i className="fas fa-check"></i>
+          </button>
+          <button className="remove-btn" onClick={deleteTodoHandler}>
+            <i className="fas fa-trash"></i>
+          </button>
+          <button className="add-subtask" onClick={addSubtaskHandler}>
+            <i className="fas fa-plus"></i>
+          </button>
+        </>
+      )}
     </div>
   );
 };

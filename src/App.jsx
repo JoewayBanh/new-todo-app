@@ -1,13 +1,18 @@
 import AddTodoForm from "./components/AddTodoForm";
 import "./App.css";
 import TodoList from "./components/TodoList";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [todoText, setTodoText] = useState("");
+  const [todoSubtitle, setTodoSubtitle] = useState("");
+  const [todoNotes, setTodoNotes] = useState("");
   const [todos, setTodos] = useState([]);
   const [todoStatus, setTodoStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [todoEditing, setTodoEditing] = useState(null);
+  const [editingText, setEditingText] = useState("");
+  const [todoPriority, setTodoPriority] = useState(null);
 
   useEffect(() => {
     loadSavedTodos();
@@ -22,7 +27,7 @@ function App() {
       case "completed":
         setFilteredTodos(todos.filter((todo) => todo.completed === true));
         break;
-      case "incompleted":
+      case "incomplete":
         setFilteredTodos(todos.filter((todo) => todo.completed === false));
         break;
       default:
@@ -50,15 +55,25 @@ function App() {
       <AddTodoForm
         todoText={todoText}
         setTodoText={setTodoText}
+        todoSubtitle={todoSubtitle}
+        setTodoSubtitle={setTodoSubtitle}
+        todoNotes={todoNotes}
+        setTodoNotes={setTodoNotes}
         todos={todos}
         setTodos={setTodos}
         todoStatus={todoStatus}
         setTodoStatus={setTodoStatus}
+        todoPriority={todoPriority}
+        setTodoPriority={setTodoPriority}
       />
       <TodoList
         todos={todos}
         setTodos={setTodos}
         filteredTodos={filteredTodos}
+        setTodoEditing={setTodoEditing}
+        setEditingText={setEditingText}
+        editingText={editingText}
+        todoEditing={todoEditing}
       />
     </div>
   );
