@@ -22,6 +22,9 @@ const AddTodoForm = ({
   const getTodoNotes = (e) => {
     setTodoNotes(e.target.value);
   };
+  const getTodoPriority = (e) => {
+    setTodoPriority(e.target.value);
+  };
 
   const submitTodoHandler = (e) => {
     e.preventDefault();
@@ -81,10 +84,11 @@ const AddTodoForm = ({
             name="priority"
             id="prioritySelection"
             placeholder="Select priority"
+            onChange={getTodoPriority}
             value={todoPriority}
             required
           >
-            <option value="" selected disabled hidden>
+            <option value="" disabled hidden>
               Select priority
             </option>
             <option value="Not urgent">Not urgent</option>

@@ -9,6 +9,10 @@ const Todo = ({
   todoEditing,
   subtitle,
   notes,
+  addSubtask,
+  setAddSubtask,
+  subtasks,
+  setSubtasks,
 }) => {
   const deleteTodoHandler = () => {
     setTodos(todos.filter((element) => element.id !== todo.id));
@@ -45,7 +49,10 @@ const Todo = ({
     setEditingText("");
   };
 
-  const addSubtaskHandler = () => {};
+  // const addSubtaskHandler = (e) => {
+  //   setSubtasks(e.target.value);
+  // };
+
   return (
     <div className="todo">
       {todoEditing === todo.id ? (
@@ -62,8 +69,27 @@ const Todo = ({
           <h2 className="todo-title">{text}</h2>
           <h3 className="todo-subtitle">Subtitle: {subtitle}</h3>
           <h4 className="todo-notes">Notes: {notes}</h4>
+
+          {/* <input type="checkbox" name="" id="subtask" />
+          {subtasks} */}
         </li>
       )}
+
+      {/* {addSubtask === todo.id ? (
+        <>
+          <input
+            className="new-subtask"
+            type="text"
+            placeholder="subtask"
+            onChange={addSubtaskHandler}
+            value={subtasks}
+            maxLength={50}
+          />
+          <button type="submit">+</button>
+        </>
+      ) : (
+        ""
+      )} */}
 
       {todoEditing === todo.id ? (
         <button className="save-edit" onClick={() => editTodo(todo.id)}>
@@ -72,6 +98,15 @@ const Todo = ({
       ) : (
         <>
           <button
+            className="add-subtask"
+            onClick={() => {
+              setAddSubtask(todo.id);
+            }}
+          >
+            <i className="fas fa-plus"></i>
+          </button>
+
+          <button
             className="edit-btn"
             onClick={() => {
               setTodoEditing(todo.id);
@@ -79,14 +114,13 @@ const Todo = ({
           >
             <i className="fas fa-pen"></i>
           </button>
+
           <button className="complete-btn" onClick={completeTodoHandler}>
             <i className="fas fa-check"></i>
           </button>
+
           <button className="remove-btn" onClick={deleteTodoHandler}>
             <i className="fas fa-trash"></i>
-          </button>
-          <button className="add-subtask" onClick={addSubtaskHandler}>
-            <i className="fas fa-plus"></i>
           </button>
         </>
       )}

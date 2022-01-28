@@ -12,7 +12,9 @@ function App() {
   const [filteredTodos, setFilteredTodos] = useState([]);
   const [todoEditing, setTodoEditing] = useState(null);
   const [editingText, setEditingText] = useState("");
-  const [todoPriority, setTodoPriority] = useState(null);
+  const [todoPriority, setTodoPriority] = useState("");
+  const [addSubtask, setAddSubtask] = useState(null);
+  const [subtasks, setSubtasks] = useState([]);
 
   useEffect(() => {
     loadSavedTodos();
@@ -74,6 +76,10 @@ function App() {
         setEditingText={setEditingText}
         editingText={editingText}
         todoEditing={todoEditing}
+        addSubtask={addSubtask}
+        setAddSubtask={setAddSubtask}
+        subtasks={subtasks}
+        setSubtasks={setSubtasks}
       />
     </div>
   );

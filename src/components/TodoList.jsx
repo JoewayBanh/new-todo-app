@@ -8,6 +8,10 @@ const TodoList = ({
   setEditingText,
   editingText,
   todoEditing,
+  addSubtask,
+  setAddSubtask,
+  subtasks,
+  setSubtasks,
 }) => {
   return (
     <div className="todo-container">
@@ -25,6 +29,10 @@ const TodoList = ({
             setEditingText={setEditingText}
             editingText={editingText}
             todoEditing={todoEditing}
+            addSubtask={addSubtask}
+            setAddSubtask={setAddSubtask}
+            subtasks={subtasks}
+            setSubtasks={setSubtasks}
           />
         ))}
       </ul>
