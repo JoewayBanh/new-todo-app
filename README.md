@@ -1,3 +1,18 @@
+# How to use todo app:
+
+- After cloning the app from github you will have to type "npm i" in your terminal inside the repo to fetch all necessary dependencies. This will not take a long time.
+- When the dependencies have been installed the app can be run with "npm start".
+- As soon as the app loads you will see three inputs for text and a dropdown to choose the respective todo's priority.
+- After all three inputs have been filled and priority has been chosen you can either press "enter" on your keyboard or click with your mouse on the button with the plus-icon.
+- This will add your todo to the app.
+- A filter feature can also be seen right beneath the plus-icon. This filter can be changed to either show all of your todos, all you have checked off, or all of them you have yet to finish.
+
+- The rendered todo has four buttons:
+  - Add subtask (still working on it).
+  - Edit main title of todo.
+  - Check off the todo.
+  - Remove todo from the app.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
