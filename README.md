@@ -8,10 +8,13 @@
 - A filter feature can also be seen right beneath the plus-icon. This filter can be changed to either show all of your todos, all you have checked off, or all of them you have yet to finish.
 
 - The rendered todo has four buttons:
+
   - Add subtask (still working on it).
   - Edit main title of todo.
   - Check off the todo.
   - Remove todo from the app.
+
+- The app will automatically save your todos in your localstorage so you won't have to worry about losing them when refreshing the app. The app also loads all your todos you have made earlier upon refreshing.
 
 # Getting Started with Create React App
 

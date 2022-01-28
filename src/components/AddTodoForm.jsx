@@ -54,7 +54,7 @@ const AddTodoForm = ({
         <input
           type="text"
           className="todo-input title"
-          placeholder="Type in new todo"
+          placeholder="Add todo here"
           onChange={getTodoText}
           value={todoText}
           required

@@ -4,12 +4,12 @@ const TodoList = ({
   todos,
   setTodos,
   filteredTodos,
-  setTodoEditing,
+  setTodoEditingTrigger,
   setEditingText,
   editingText,
-  todoEditing,
-  addSubtask,
-  setAddSubtask,
+  todoEditingTrigger,
+  addSubtaskTrigger,
+  setAddSubtaskTrigger,
   subtasks,
   setSubtasks,
 }) => {
@@ -25,12 +25,12 @@ const TodoList = ({
             todos={todos}
             setTodos={setTodos}
             todo={todo}
-            setTodoEditing={setTodoEditing}
+            setTodoEditingTrigger={setTodoEditingTrigger}
             setEditingText={setEditingText}
             editingText={editingText}
-            todoEditing={todoEditing}
-            addSubtask={addSubtask}
-            setAddSubtask={setAddSubtask}
+            todoEditingTrigger={todoEditingTrigger}
+            addSubtaskTrigger={addSubtaskTrigger}
+            setAddSubtaskTrigger={setAddSubtaskTrigger}
             subtasks={subtasks}
             setSubtasks={setSubtasks}
           />

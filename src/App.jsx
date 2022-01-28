@@ -10,10 +10,10 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [todoStatus, setTodoStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
-  const [todoEditing, setTodoEditing] = useState(null);
+  const [todoEditingTrigger, setTodoEditingTrigger] = useState(null);
   const [editingText, setEditingText] = useState("");
   const [todoPriority, setTodoPriority] = useState("");
-  const [addSubtask, setAddSubtask] = useState(null);
+  const [addSubtaskTrigger, setAddSubtaskTrigger] = useState(null);
   const [subtasks, setSubtasks] = useState([]);
 
   useEffect(() => {
@@ -72,12 +72,12 @@ function App() {
         todos={todos}
         setTodos={setTodos}
         filteredTodos={filteredTodos}
-        setTodoEditing={setTodoEditing}
+        setTodoEditingTrigger={setTodoEditingTrigger}
         setEditingText={setEditingText}
         editingText={editingText}
-        todoEditing={todoEditing}
-        addSubtask={addSubtask}
-        setAddSubtask={setAddSubtask}
+        todoEditingTrigger={todoEditingTrigger}
+        addSubtaskTrigger={addSubtaskTrigger}
+        setAddSubtaskTrigger={setAddSubtaskTrigger}
         subtasks={subtasks}
         setSubtasks={setSubtasks}
       />

@@ -3,14 +3,14 @@ const Todo = ({
   todos,
   setTodos,
   todo,
-  setTodoEditing,
+  setTodoEditingTrigger,
   setEditingText,
   editingText,
-  todoEditing,
+  todoEditingTrigger,
   subtitle,
   notes,
-  addSubtask,
-  setAddSubtask,
+  addSubtaskTrigger,
+  setAddSubtaskTrigger,
   subtasks,
   setSubtasks,
 }) => {
@@ -45,7 +45,7 @@ const Todo = ({
     });
 
     setTodos(updatedTodos);
-    setTodoEditing(null);
+    setTodoEditingTrigger(null);
     setEditingText("");
   };
 
@@ -55,7 +55,7 @@ const Todo = ({
 
   return (
     <div className="todo">
-      {todoEditing === todo.id ? (
+      {todoEditingTrigger === todo.id ? (
         <input
           className="todo-edit"
           type="text"
@@ -75,13 +75,13 @@ const Todo = ({
         </li>
       )}
 
-      {/* {addSubtask === todo.id ? (
+      {/* {addSubtaskTrigger === todo.id ? (
         <>
           <input
             className="new-subtask"
             type="text"
             placeholder="subtask"
-            onChange={addSubtaskHandler}
+            onChange={addSubtaskTriggerHandler}
             value={subtasks}
             maxLength={50}
           />
@@ -91,7 +91,7 @@ const Todo = ({
         ""
       )} */}
 
-      {todoEditing === todo.id ? (
+      {todoEditingTrigger === todo.id ? (
         <button className="save-edit" onClick={() => editTodo(todo.id)}>
           <i className="fas fa-save"></i>
         </button>
@@ -100,7 +100,7 @@ const Todo = ({
           <button
             className="add-subtask"
             onClick={() => {
-              setAddSubtask(todo.id);
+              setAddSubtaskTrigger(todo.id);
             }}
           >
             <i className="fas fa-plus"></i>
@@ -109,7 +109,7 @@ const Todo = ({
           <button
             className="edit-btn"
             onClick={() => {
-              setTodoEditing(todo.id);
+              setTodoEditingTrigger(todo.id);
             }}
           >
             <i className="fas fa-pen"></i>
